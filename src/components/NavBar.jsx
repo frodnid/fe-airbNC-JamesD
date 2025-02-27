@@ -1,6 +1,7 @@
 import { useContext, useState, useRef, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { Link } from "react-router";
+import SearchBar from "./SearchBar";
 
 export default function NavBar() {
 	const { user } = useContext(UserContext);
@@ -18,9 +19,14 @@ export default function NavBar() {
 	return (
 		<nav id="main-nav-bar">
 			<Link to="/">Home</Link>
-			<span>This is a search bar</span>
-
-			<img id="nav-bar-avatar" src={avatar} alt={`user avatar`} />
+			<SearchBar />
+			<div
+				className="avatar-container"
+				style={{
+					backgroundImage: `url(${avatar})`,
+					backgroundSize: "3rem",
+				}}
+			></div>
 		</nav>
 	);
 }
