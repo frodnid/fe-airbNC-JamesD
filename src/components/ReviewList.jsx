@@ -2,14 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import * as api from "../api";
 import { CCard, CCardBody, CCardSubtitle, CCardTitle } from "@coreui/react";
 import { UserContext } from "../contexts/UserContext";
+import StarDisplay from "./StarDisplay";
+import StarRadio from "./StarRadio";
 
 export default function ReviewList({ id }) {
 	const { user } = useContext(UserContext);
 	const [reviews, setReviews] = useState(null);
 	const [rating, setRating] = useState(0);
-	const [hover, setHover] = useState(0);
+
 	const [comment, setComment] = useState("");
-	const starValues = [1, 2, 3, 4, 5];
+
 	useEffect(() => {
 		api.getReviews(id).then((reviewsData) => {
 			setReviews(reviewsData);
@@ -33,7 +35,10 @@ export default function ReviewList({ id }) {
 							marginBottom: "1rem",
 						}}
 					>
-						<CCardTitle>{review.rating} Stars</CCardTitle>
+						<CCardTitle>
+							<StarDisplay review={review} />
+						</CCardTitle>
+
 						<CCardSubtitle>{review.guest}</CCardSubtitle>
 						<CCardBody style={{ fontStyle: "italic" }}>
 							{review.comment}
@@ -58,26 +63,7 @@ export default function ReviewList({ id }) {
 			>
 				<h5>Rating:</h5>
 				<div id="star-rating-select">
-					{starValues.map((starValue) => {
-						return (
-							<span
-								key={starValue}
-								style={{
-									cursor: "pointer",
-									fontSize: "2rem",
-									color:
-										starValue <= (hover || rating)
-											? "gold"
-											: "lightgray",
-								}}
-								onClick={() => setRating(starValue)}
-								onMouseEnter={() => setHover(starValue)}
-								onMouseLeave={() => setHover(0)}
-							>
-								&#9733;
-							</span>
-						);
-					})}
+					<StarRadio rating={rating} setRating={setRating} />
 				</div>
 				<h5>Comment:</h5>
 				<textarea

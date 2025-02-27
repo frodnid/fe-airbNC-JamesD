@@ -11,12 +11,17 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-#nav-bar-avatar {
-	width: 40px;
-	border-radius: 100%;
+.avatar-container {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 100%
+;
 }
 
+
+
 .property-card {
+	color: aliceblue;
 	margin: 2rem 0rem;
 	border-radius: 1rem;
 	min-height: 10rem;

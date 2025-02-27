@@ -12,6 +12,7 @@ import ThankYouPage from "./components/ThankYouPage";
 function App() {
 	//Users could be hardcoded for demo purposes, but this gives an easier springboard into future auth functionality
 	const { setUser, favourites, bookings } = useContext(UserContext);
+
 	useEffect(() => {
 		api.getUser()
 			.then((userData) => {
