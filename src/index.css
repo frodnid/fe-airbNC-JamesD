@@ -1,8 +1,6 @@
 body {
-	margin: 2px;
+	padding: 0.75rem;
 	display: flex;
-	place-items: center;
-
 	min-height: 100vh;
 }
 
@@ -45,6 +43,64 @@ body {
 	grid-area: sub-right;
 }
 
+#property-title {
+	font-family:'Times New Roman', Times, serif;
+	font-size: 3.5rem;
+	font-weight: bold;
+	text-align: left;
+}
+#property-info-subtitle {
+	width: 100%;
+	max-height: 4rem;
+	display: flex;
+	
+	justify-content: space-between;
+}
+
+#property-location {
+	font-style: italic;
+	align-self: end;
+	
+}
+
+#property-price {
+	align-items: end;
+	justify-items: center;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-rows: 3fr 1fr;
+	grid-template-areas: 
+	"upper-left ."
+	". lower-right";
+	
+}
+
+#price {
+	grid-area: upper-left;
+	justify-self: end;
+	margin: -1.6rem 0.2rem;
+	font-size: 3em;
+	font-weight: bolder;
+}
+
+#per-night {
+	grid-area: lower-right;
+
+}
+
+#carousel-wrapper {
+	
+	border: solid 10px  aliceblue;
+	border-radius: 4% 4% 0% 0%;
+
+}
+
+#property-description {
+	width: 100%;
+	padding: 1rem;
+	background-color: aliceblue;
+}
+
 .card-overlay {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
@@ -64,4 +120,12 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+#review-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
 }
