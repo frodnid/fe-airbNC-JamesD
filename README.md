@@ -1,8 +1,13 @@
-# React + Vite
+# AirBNC Front End UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **Intro**
+This is the frontend portion of a portfolio project for the Northcoders part time software development course created by James Dindorf.<br>
+The project is an AirBnB-like app using React + React router for front end development
 
-Currently, two official plugins are available:
+Routes/Pages:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* > / - Main feed of available properties
+* > /property/:id - Spotlight on a given property with functionality for adding a booking, review, or favouriting the property
+* > /property/:id/booking - confirmation booking form which direct to a thank-you page on completion
+* > /users/:id - user profile displaying all favourited & booked properties, with funcionality to remove bookings/favourites & edit user info (TBC)
+
