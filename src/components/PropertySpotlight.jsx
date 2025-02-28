@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import * as api from "../api";
-import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
-import ReviewList from "./ReviewList";
-import { UserContext } from "../contexts/UserContext";
-import FavouriteToggle from "./FavouriteToggle";
+import { UserContext } from "../contexts/Context";
 import "../index.css";
 import BookingCalendar from "./BookingCalendar";
+import FavouriteToggle from "./FavouriteToggle";
+import ReviewList from "./ReviewList";
 
 export default function PropertySpotlight() {
 	const { id: propertyID } = useParams();
@@ -14,7 +14,6 @@ export default function PropertySpotlight() {
 	const [userLoaded, setUserLoaded] = useState(false);
 	const [property, setProperty] = useState(null);
 	const [bookings, setBookings] = useState(null);
-	const imgIndex = useRef(0);
 
 	useEffect(() => {
 		if (user) {
@@ -43,8 +42,8 @@ export default function PropertySpotlight() {
 		location,
 		price_per_night: price,
 		description,
-		host,
-		host_avatar: hostImg,
+		// host,
+		// host_avatar: hostImg, todo- add host info widget
 		favourited,
 		images,
 	} = property;
@@ -61,13 +60,13 @@ export default function PropertySpotlight() {
 			</div>
 			<div className="card" id="carousel-wrapper">
 				<CCarousel controls indicators dark interval="false">
-					{images.map((image) => {
+					{images.map((image, i) => {
 						return (
-							<CCarouselItem key={imgIndex.current++}>
+							<CCarouselItem key={i}>
 								<CImage
 									className="d-block w-100"
 									src={image}
-									alt={`slide-${imgIndex.current}`}
+									alt={`slide-${i}`}
 								/>
 							</CCarouselItem>
 						);

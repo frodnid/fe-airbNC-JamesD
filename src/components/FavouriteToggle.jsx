@@ -1,7 +1,9 @@
-import { useContext, useState, useRef } from "react";
-import { UserContext } from "../contexts/UserContext";
-import * as api from "../api";
 import { CButton, CSpinner } from "@coreui/react";
+import { useContext, useRef, useState } from "react";
+import * as api from "../api";
+import heartBlack from "../assets/heart-icon-black.webp";
+import heartGrey from "../assets/heart-icon-grey.webp";
+import { UserContext } from "../contexts/Context";
 
 export default function FavouriteToggle({ propertyID, userID, favourited }) {
 	const id = useRef(null);
@@ -33,14 +35,17 @@ export default function FavouriteToggle({ propertyID, userID, favourited }) {
 				<CSpinner
 					hidden={!buttonDisabled}
 					as="span"
-					size="sm"
+					width="2rem"
 					aria-hidden="true"
 				/>
-				<span>Add to Favourites</span>
+
 				<img
-					onLoad={() => {}}
-					src="src/assets/heart-icon-grey.webp"
+					src={heartGrey}
 					alt="grey heart icon"
+					style={{
+						display: buttonDisabled ? "none" : "block",
+						width: "2rem",
+					}}
 				/>
 			</CButton>
 		);
@@ -71,13 +76,16 @@ export default function FavouriteToggle({ propertyID, userID, favourited }) {
 			<CSpinner
 				hidden={!buttonDisabled}
 				as="span"
-				size="sm"
+				size="2rem"
 				aria-hidden="true"
 			/>
-			<span>Remove from Favourites</span>
 			<img
-				src="src/assets/heart-icon-black.webp"
+				src={heartBlack}
 				alt="black heart icon"
+				style={{
+					display: buttonDisabled ? "none" : "block",
+					width: "2rem",
+				}}
 			/>
 		</CButton>
 	);

@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { SearchContext } from "../contexts/UserContext";
+import { SearchContext } from "../contexts/Context";
 
 export default function SearchBar() {
 	const searchTerm = useRef(null);

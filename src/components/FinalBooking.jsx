@@ -1,7 +1,7 @@
-import { useRef, useContext } from "react";
+import { useContext, useRef } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router";
-import { UserContext } from "../contexts/UserContext";
 import { postBooking } from "../api";
+import { UserContext } from "../contexts/Context";
 
 export default function FinalBooking() {
 	const { user, bookings } = useContext(UserContext);

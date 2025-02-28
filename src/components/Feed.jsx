@@ -3,7 +3,7 @@ import { getProperties } from "../api";
 import { filterBySearchTerm } from "../util";
 import PropertyCard from "./PropertyCard";
 import { CButton, CCollapse } from "@coreui/react";
-import { SearchContext } from "../contexts/UserContext";
+import { SearchContext } from "../contexts/Context";
 import FilterForm from "./FilterForm";
 
 export default function Feed() {

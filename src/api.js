@@ -81,3 +81,9 @@ export function postReview(propertyID, review) {
 		review
 	);
 }
+
+export function patchUser(id, userInfo) {
+	return axios
+		.patch(`https://airbnb-esque.onrender.com/api/users/${id}`, userInfo)
+		.then(({ data }) => data);
+}

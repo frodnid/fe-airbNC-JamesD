@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from "react";
-import * as api from "../api";
 import { CCard, CCardBody, CCardSubtitle, CCardTitle } from "@coreui/react";
-import { UserContext } from "../contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
+import * as api from "../api";
+import { UserContext } from "../contexts/Context";
 import StarDisplay from "./StarDisplay";
 import StarRadio from "./StarRadio";
 
